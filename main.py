@@ -111,15 +111,15 @@ for epoch in range(epoch_num):
 torch.save(usegnet.state_dict(), 'checkpoints/usegnet_weights.pth')
 
 # 测试网络预测并展示
-usegnet.load_state_dict(torch.load('checkpoints/usegnet_weights.pth', weights_only=True))
-
-show_tensor_pic = transforms.ToPILImage()
-img, mask = next(iter(test_iter))
-plt.figure('image')
-plt.imshow(img[0].permute(1, 2, 0))
-plt.show()
-plt.imshow(mask[0].permute(1, 2, 0))
-plt.show()
-predict_pic = usegnet(img[0].unsqueeze(0).to(device))
-plt.imshow(predict_pic.squeeze(0).permute(1, 2, 0).cpu().detach().numpy())
-plt.show()
+# usegnet.load_state_dict(torch.load('checkpoints/usegnet_weights.pth', weights_only=True))
+#
+# show_tensor_pic = transforms.ToPILImage()
+# img, mask = next(iter(test_iter))
+# plt.figure('image')
+# plt.imshow(img[0].permute(1, 2, 0))
+# plt.show()
+# plt.imshow(mask[0].permute(1, 2, 0))
+# plt.show()
+# predict_pic = usegnet(img[0].unsqueeze(0).to(device))
+# plt.imshow(predict_pic.squeeze(0).permute(1, 2, 0).cpu().detach().numpy())
+# plt.show()
